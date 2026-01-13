@@ -1,0 +1,100 @@
+[
+  { "raw": "text-gray-900", "utility": "text-gray-900", "domain": "color", "group": "text" },
+  { "raw": "hover:text-red-500", "utility": "text-red-500", "domain": "color", "group": "text" },
+  { "raw": "md:text-zinc-700", "utility": "text-zinc-700", "domain": "color", "group": "text" },
+  { "raw": "!text-emerald-700", "utility": "text-emerald-700", "domain": "color", "group": "text" },
+  { "raw": "text-[#0f172a]", "utility": "text-[#0f172a]", "domain": "color", "group": "text" },
+  { "raw": "text-[rgb(255,0,0)]", "utility": "text-[rgb(255,0,0)]", "domain": "color", "group": "text" },
+  { "raw": "text-[color:var(--fg)]", "utility": "text-[color:var(--fg)]", "domain": "color", "group": "text" },
+
+  { "raw": "bg-white", "utility": "bg-white", "domain": "color", "group": "background" },
+  { "raw": "bg-gray-50", "utility": "bg-gray-50", "domain": "color", "group": "background" },
+  { "raw": "hover:bg-blue-700", "utility": "bg-blue-700", "domain": "color", "group": "background" },
+  { "raw": "md:hover:bg-gray-100", "utility": "bg-gray-100", "domain": "color", "group": "background" },
+  { "raw": "!bg-emerald-600", "utility": "bg-emerald-600", "domain": "color", "group": "background" },
+  { "raw": "bg-[#111827]", "utility": "bg-[#111827]", "domain": "color", "group": "background" },
+  { "raw": "bg-[rgba(0,0,0,0.5)]", "utility": "bg-[rgba(0,0,0,0.5)]", "domain": "color", "group": "background" },
+
+  { "raw": "border-gray-200", "utility": "border-gray-200", "domain": "color", "group": "border" },
+  { "raw": "hover:border-gray-300", "utility": "border-gray-300", "domain": "color", "group": "border" },
+  { "raw": "border-[#e5e7eb]", "utility": "border-[#e5e7eb]", "domain": "color", "group": "border" },
+  { "raw": "border-[color:var(--border)]", "utility": "border-[color:var(--border)]", "domain": "color", "group": "border" },
+
+  { "raw": "ring-blue-600", "utility": "ring-blue-600", "domain": "color", "group": "other" },
+  { "raw": "focus:ring-indigo-500", "utility": "ring-indigo-500", "domain": "color", "group": "other" },
+  { "raw": "outline-blue-600", "utility": "outline-blue-600", "domain": "color", "group": "other" },
+  { "raw": "fill-gray-500", "utility": "fill-gray-500", "domain": "color", "group": "other" },
+  { "raw": "stroke-slate-400", "utility": "stroke-slate-400", "domain": "color", "group": "other" },
+
+  { "raw": "text-xs", "utility": "text-xs", "domain": "typography", "group": "fontSize" },
+  { "raw": "text-sm", "utility": "text-sm", "domain": "typography", "group": "fontSize" },
+  { "raw": "text-base", "utility": "text-base", "domain": "typography", "group": "fontSize" },
+  { "raw": "text-2xl", "utility": "text-2xl", "domain": "typography", "group": "fontSize" },
+  { "raw": "md:text-sm", "utility": "text-sm", "domain": "typography", "group": "fontSize" },
+  { "raw": "!text-sm", "utility": "text-sm", "domain": "typography", "group": "fontSize" },
+  { "raw": "text-[13px]", "utility": "text-[13px]", "domain": "typography", "group": "fontSize" },
+  { "raw": "text-[1.125rem]", "utility": "text-[1.125rem]", "domain": "typography", "group": "fontSize" },
+
+  { "raw": "font-normal", "utility": "font-normal", "domain": "typography", "group": "fontWeight" },
+  { "raw": "font-medium", "utility": "font-medium", "domain": "typography", "group": "fontWeight" },
+  { "raw": "md:font-semibold", "utility": "font-semibold", "domain": "typography", "group": "fontWeight" },
+
+  { "raw": "leading-none", "utility": "leading-none", "domain": "typography", "group": "lineHeight" },
+  { "raw": "leading-6", "utility": "leading-6", "domain": "typography", "group": "lineHeight" },
+  { "raw": "leading-[18px]", "utility": "leading-[18px]", "domain": "typography", "group": "lineHeight" },
+
+  { "raw": "tracking-tight", "utility": "tracking-tight", "domain": "typography", "group": "letterSpacing" },
+  { "raw": "tracking-[0.02em]", "utility": "tracking-[0.02em]", "domain": "typography", "group": "letterSpacing" },
+
+  { "raw": "uppercase", "utility": "uppercase", "domain": "typography", "group": "textTransform" },
+  { "raw": "normal-case", "utility": "normal-case", "domain": "typography", "group": "textTransform" },
+
+  { "raw": "text-left", "utility": "text-left", "domain": "typography", "group": "alignment" },
+  { "raw": "md:text-center", "utility": "text-center", "domain": "typography", "group": "alignment" },
+
+  { "raw": "p-4", "utility": "p-4", "domain": "spacing", "group": "padding" },
+  { "raw": "px-4", "utility": "px-4", "domain": "spacing", "group": "padding" },
+  { "raw": "py-1.5", "utility": "py-1.5", "domain": "spacing", "group": "padding" },
+  { "raw": "p-[18px]", "utility": "p-[18px]", "domain": "spacing", "group": "padding" },
+
+  { "raw": "mx-auto", "utility": "mx-auto", "domain": "spacing", "group": "margin" },
+  { "raw": "mt-2", "utility": "mt-2", "domain": "spacing", "group": "margin" },
+  { "raw": "-mt-2", "utility": "mt-2", "domain": "spacing", "group": "margin" },
+  { "raw": "m-[10px]", "utility": "m-[10px]", "domain": "spacing", "group": "margin" },
+
+  { "raw": "gap-2", "utility": "gap-2", "domain": "spacing", "group": "gap" },
+  { "raw": "gap-x-4", "utility": "gap-x-4", "domain": "spacing", "group": "gap" },
+  { "raw": "gap-[18px]", "utility": "gap-[18px]", "domain": "spacing", "group": "gap" },
+
+  { "raw": "space-x-2", "utility": "space-x-2", "domain": "spacing", "group": "space" },
+  { "raw": "space-y-[18px]", "utility": "space-y-[18px]", "domain": "spacing", "group": "space" },
+
+  { "raw": "rounded", "utility": "rounded", "domain": "radius", "group": "radius" },
+  { "raw": "rounded-lg", "utility": "rounded-lg", "domain": "radius", "group": "radius" },
+  { "raw": "rounded-tr-md", "utility": "rounded-tr-md", "domain": "radius", "group": "radius" },
+  { "raw": "rounded-[12px]", "utility": "rounded-[12px]", "domain": "radius", "group": "radius" },
+
+  { "raw": "shadow", "utility": "shadow", "domain": "shadow", "group": "shadow" },
+  { "raw": "shadow-md", "utility": "shadow-md", "domain": "shadow", "group": "shadow" },
+  { "raw": "shadow-[0_10px_15px_rgba(0,0,0,0.2)]", "utility": "shadow-[0_10px_15px_rgba(0,0,0,0.2)]", "domain": "shadow", "group": "shadow" },
+
+  { "raw": "border", "utility": "border", "domain": "border", "group": "width" },
+  { "raw": "border-2", "utility": "border-2", "domain": "border", "group": "width" },
+  { "raw": "border-y-2", "utility": "border-y-2", "domain": "border", "group": "width" },
+  { "raw": "border-solid", "utility": "border-solid", "domain": "border", "group": "style" },
+  { "raw": "border-dashed", "utility": "border-dashed", "domain": "border", "group": "style" },
+
+  { "raw": "opacity-50", "utility": "opacity-50", "domain": "opacity", "group": "opacity" },
+  { "raw": "hover:opacity-90", "utility": "opacity-90", "domain": "opacity", "group": "opacity" },
+  { "raw": "text-opacity-60", "utility": "text-opacity-60", "domain": "opacity", "group": "opacity" },
+  { "raw": "bg-opacity-80", "utility": "bg-opacity-80", "domain": "opacity", "group": "opacity" },
+
+  { "raw": "z-10", "utility": "z-10", "domain": "zIndex", "group": "zIndex" },
+  { "raw": "z-[999]", "utility": "z-[999]", "domain": "zIndex", "group": "zIndex" },
+
+  { "raw": "flex", "utility": "flex", "domain": "other", "group": "layout" },
+  { "raw": "items-center", "utility": "items-center", "domain": "other", "group": "layout" },
+  { "raw": "w-full", "utility": "w-full", "domain": "other", "group": "sizing" },
+  { "raw": "transition-colors", "utility": "transition-colors", "domain": "other", "group": "effect" },
+  { "raw": "[mask-image:radial-gradient(white,transparent)]", "utility": "[mask-image:radial-gradient(white,transparent)]", "domain": "other", "group": "arbitraryProperty" }
+]
