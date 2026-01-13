@@ -98,7 +98,6 @@ export function defaultSprawlRules(): SprawlRule[] {
   ];
 }
 
-// This is the other DRY win: one list controls both md/html section order.
 export function defaultSectionsOrder(): Array<Pick<ReportSection, "title"|"domain"|"group">> {
   return [
     { title: "Color · Text", domain: "color", group: "text" },

@@ -83,7 +83,7 @@ function renderNotes(notes: string[]): string {
 }
 
 function baseStyles(): string {
-  // Keep this minimal & self-contained; no external assets.
+  // Minimal & self-contained; no external assets.
   return `
     :root { color-scheme: light dark; }
     body {

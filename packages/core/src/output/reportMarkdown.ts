@@ -1,4 +1,3 @@
-// report.ts (markdown)
 import type { ExtractProjectResult } from "../extractFromProject";
 import { buildReportModel } from "./reportModel";
 

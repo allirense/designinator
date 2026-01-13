@@ -59,8 +59,7 @@ function addUsage(
   const existing = groupCounts.values[utility];
   if (!existing) {
     groupCounts.values[utility] = { utility, count: 1, files: 1 };
-    // We need to track which files this utility appeared in.
-    // Do it via a hidden Set map outside of JSON result (see below).
+    // Track which files this utility appeared in.
     return;
   }
   existing.count += 1;
