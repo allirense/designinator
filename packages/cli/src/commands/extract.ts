@@ -19,8 +19,6 @@ export async function extract(
 
   fs.mkdirSync(absOutDir, { recursive: true });
 
-  console.log("Project path: " + projectPath)
-
   const result = await extractFromProject({
     projectRoot: projectPath,
     includeClassAttr: false
