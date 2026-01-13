@@ -1,10 +1,8 @@
-# Designinator
+# ⚡ Behold, The Designinator!
 
 Designinator extracts the *implicit* design system hiding in an existing **React + Tailwind** codebase. It scans your frontend source, counts Tailwind utility classes, and outputs a shareable report so teams can see what tokens they’re already using (and where things have started to sprawl).
 
 This is **pre-1.0** and intentionally scoped. It’s a “mirror,” not an opinionated lint tool.
-
----
 
 ## What it does
 
@@ -17,16 +15,12 @@ This is **pre-1.0** and intentionally scoped. It’s a “mirror,” not an opin
   - `report.html` (default, minimal styling)
   - `report.md` (optional)
 
----
-
 ## What it does not do (yet)
 
 - No runtime evaluation (counts reflect **presence in code**, not runtime frequency)
 - No CSS generation
 - No design tool export (Figma, etc.)
 - No component library extraction (planned exploration, but not v0)
-
----
 
 ## Quick start (local)
 
@@ -47,8 +41,6 @@ pnpm build
 ```
 pnpm extract ./examples/demo-app -o ./output-demo
 ```
-
----
 
 ## Usage
 
@@ -75,8 +67,6 @@ Markdown:
 pnpm extract ./my-app -o ./out --format md
 ```
 
----
-
 ## Output files
 
 ### tokens.json
@@ -97,8 +87,6 @@ A human readable summary in markdown. Includes:
 - top utilities per group
 - basic "sprawl" warnings when there are many unique values
 
----
-
 ## Scope Limitations
 
 Designinator currently extracts static class strings from:
@@ -114,8 +102,6 @@ Designinator intentionally ignores patterns it cannot confidently resolve:
 
 This is a deliberate choice for v0: correctness and clarity over guessing.
 
----
-
 ## Development
 
 Run tests:
@@ -128,8 +114,6 @@ Build all:
 pnpm build
 ```
 
----
-
 ## Contributing
 
 Small, focused contributions are welcome — especially:
@@ -138,8 +122,6 @@ Small, focused contributions are welcome — especially:
 - Improvements to report UX
 
 If you're planning a larger feature, please open an issue first to discuss.
-
----
 
 ## License
 
