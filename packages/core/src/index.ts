@@ -18,6 +18,7 @@ export async function extractDesignSystem(opts: ExtractOptions) {
 export * from "./categorize";
 export * from "./extractFromProject";
 export * from "./analysis/tokenCounts";
+export * from "./analysis/arbitraryValues";
 export * from "./scanner/classNameExtractor";
 export * from "./output/reportModel"
 export * from "./output/reportMarkdown";

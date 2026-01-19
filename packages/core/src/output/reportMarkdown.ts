@@ -30,6 +30,23 @@ export function generateReportMarkdown(result: ExtractProjectResult): string {
     ""
   ].join("\n");
 
+  const arbitraryItems =
+    m.arbitraryValues.items.length === 0
+      ? ["(none found)"]
+      : m.arbitraryValues.items.map((i) => {
+          const replaceable = i.replaceableWith ? `; replace with \`${i.replaceableWith}\`` : "";
+          return `- \`${i.utility}\` — **${i.count}**${i.count === 1 ? " use" : " uses"}${replaceable}`;
+        });
+
+  const arbitrary = [
+    "## Arbitrary values",
+    "",
+    `Total detected: **${m.arbitraryValues.total}**`,
+    "",
+    ...arbitraryItems,
+    ""
+  ].join("\n");
+
   const sections = m.sections.map(sec => {
     const lines =
       sec.total === 0
@@ -43,5 +60,5 @@ export function generateReportMarkdown(result: ExtractProjectResult): string {
 
   const notes = ["## Notes", "", ...m.notes.map(n => `- ${n}`), ""].join("\n");
 
-  return header + sprawl + sections + notes;
+  return header + sprawl + arbitrary + sections + notes;
 }

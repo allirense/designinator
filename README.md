@@ -86,6 +86,7 @@ A human readable summary that can be opened in the browser. Includes:
 A human readable summary in markdown. Includes:
 - top utilities per group
 - basic "sprawl" warnings when there are many unique values
+- a list of arbitrary classes (classes that are used only one or two times) with, if present, possible replacements
 
 ## Scope Limitations
 
