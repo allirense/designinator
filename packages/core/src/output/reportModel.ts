@@ -1,6 +1,6 @@
 import type { ExtractProjectResult } from "../extractFromProject";
 import type { TokenGroupCounts, TokenUsage } from "../analysis/tokenCounts";
-import { warn } from "node:console";
+import type { ArbitraryValueStats } from "../analysis/arbitraryValues";
 
 export type ReportFormat = "html" | "md";
 
@@ -52,6 +52,7 @@ export interface ReportSection {
 export interface ReportModel {
   title: string;
   meta: ExtractProjectResult["meta"];
+  arbitraryValues: ArbitraryValueStats;
   totals: {
     tokenCount: number;
     uniqueUtilities: number;
@@ -166,6 +167,7 @@ export function buildReportModel(result: ExtractProjectResult, opts: ReportModel
   return {
     title,
     meta: result.meta,
+    arbitraryValues: result.arbitraryValues,
     totals: {
       tokenCount: result.tokenCounts.meta.tokenCount,
       uniqueUtilities: result.tokenCounts.meta.uniqueUtilities,

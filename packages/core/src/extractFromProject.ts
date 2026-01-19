@@ -3,6 +3,7 @@ import { getSourceFiles } from "./scanner/fileWalker";
 import { readTextFile } from "./scanner/readFile";
 import { extractClassNameOccurrencesFromCode, type ClassNameOccurrence } from "./scanner/classNameExtractor";
 import { computeTokenCounts, sortTokenCounts, type TokenCountsResult } from "./analysis/tokenCounts";
+import { computeArbitraryValueStats, type ArbitraryValueStats } from "./analysis/arbitraryValues";
 
 export interface ExtractProjectOptions {
   projectRoot: string;
@@ -18,6 +19,7 @@ export interface ExtractProjectResult {
     occurrenceCount: number;
   };
   tokenCounts: TokenCountsResult;
+  arbitraryValues: ArbitraryValueStats;
 }
 
 export async function extractFromProject(opts: ExtractProjectOptions): Promise<ExtractProjectResult> {
@@ -42,6 +44,7 @@ export async function extractFromProject(opts: ExtractProjectOptions): Promise<E
   }
 
   const tokenCounts = sortTokenCounts(computeTokenCounts(occurrences));
+  const arbitraryValues = computeArbitraryValueStats(tokenCounts);
 
   return {
     meta: {
@@ -50,6 +53,7 @@ export async function extractFromProject(opts: ExtractProjectOptions): Promise<E
       fileCount: limitedFiles.length,
       occurrenceCount: occurrences.length
     },
-    tokenCounts
+    tokenCounts,
+    arbitraryValues
   };
 }

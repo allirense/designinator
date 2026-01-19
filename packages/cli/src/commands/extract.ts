@@ -44,4 +44,5 @@ export async function extract(
   console.log(`   className occurrences: ${result.meta.occurrenceCount}`);
   console.log(`   tokens processed: ${result.tokenCounts.meta.tokenCount}`);
   console.log(`   unique utilities: ${result.tokenCounts.meta.uniqueUtilities}`);
+  console.log(`   ${result.arbitraryValues.total} arbitrary values detected`);
 }

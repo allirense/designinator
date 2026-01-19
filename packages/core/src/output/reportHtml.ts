@@ -62,6 +62,36 @@ function renderSprawlTable(sprawl: SprawlSignal[]): string {
   `;
 }
 
+function renderArbitrarySummary(
+  total: number,
+  items: Array<{ utility: string; count: number; replaceableWith?: string }>
+): string {
+  if (items.length === 0) {
+    return `
+      <p class="muted">Custom values that rely on Tailwind arbitrary syntax.</p>
+      <p class="muted">(none found)</p>
+    `;
+  }
+
+  const listItems = items.map((i) => {
+    const replaceable = i.replaceableWith
+      ? ` · replace with <code>${escapeHtml(i.replaceableWith)}</code>`
+      : "";
+    const uses = i.count === 1 ? "use" : "uses";
+    return `
+      <li>
+        <code>${escapeHtml(i.utility)}</code>
+        <span class="meta"><strong>${i.count}</strong> ${uses}${replaceable}</span>
+      </li>
+    `;
+  }).join("");
+
+  return `
+    <p class="muted">Custom values that rely on Tailwind arbitrary syntax. Total: <strong>${total}</strong>.</p>
+    <ol class="list">${listItems}</ol>
+  `;
+}
+
 function renderSectionList(sec: ReportSection, topN: number): string {
   if (sec.total === 0) return `<p class="muted">(none found)</p>`;
 
@@ -164,6 +194,13 @@ export function generateReportHtml(
   const topN = opts.topN ?? 12;
 
   const sprawlSection = sectionHtml("Sprawl signals", renderSprawlTable(m.sprawl));
+  const arbitrarySection = sectionHtml(
+    "Arbitrary values",
+    renderArbitrarySummary(
+      m.arbitraryValues.total,
+      m.arbitraryValues.items
+    )
+  );
 
   const sectionsHtml = m.sections
     .map((sec) => sectionHtml(sec.title, renderSectionList(sec, topN)))
@@ -194,6 +231,7 @@ export function generateReportHtml(
 
     <div class="grid">
       ${sprawlSection}
+      ${arbitrarySection}
       ${sectionsHtml}
       ${notesSection}
     </div>
