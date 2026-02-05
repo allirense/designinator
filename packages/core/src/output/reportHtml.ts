@@ -16,6 +16,12 @@ function pct(n: number): string {
   return `${(Math.round(n * 1000) / 10).toFixed(1)}%`; // 1 decimal
 }
 
+function fmtPx(n: number): string {
+  const rounded = Math.round(n * 100) / 100;
+  if (Number.isInteger(rounded)) return String(rounded);
+  return rounded.toFixed(2).replace(/0+$/, "").replace(/\.$/, "");
+}
+
 function sectionHtml(title: string, inner: string): string {
   return `
     <section class="card">
@@ -112,6 +118,61 @@ function renderNotes(notes: string[]): string {
   return `<ul class="notes">${lis}</ul>`;
 }
 
+function renderSpacingScale(m: ReportModel): string {
+  const scale = m.spacingScale;
+  if (scale.totalCount === 0) {
+    return `<p class="muted">(no spacing values found)</p>`;
+  }
+
+  const proposed = scale.best?.scalePx?.length
+    ? scale.best.scalePx.map((v) => fmtPx(v)).join(", ")
+    : "(none)";
+
+  const candidateRows = scale.candidateScores.length === 0
+    ? `<tr><td colspan="3" class="muted">(no candidates scored)</td></tr>`
+    : scale.candidateScores.map((c) => `
+        <tr>
+          <td>${escapeHtml(c.name)}</td>
+          <td class="num">${pct(c.exactMatchRate)}</td>
+          <td class="num">${fmtPx(c.averageDistance)}px</td>
+        </tr>
+      `).join("");
+
+  const nonConforming = scale.nonConforming.length === 0
+    ? `<p class="muted">(none)</p>`
+    : `<ol class="list">${
+        scale.nonConforming.map((item) => `
+          <li>
+            <code>${escapeHtml(item.utility)}</code>
+            <span class="meta"><strong>${item.count}</strong> uses · ${fmtPx(item.px)}px → <code>${escapeHtml(item.suggestedReplacement)}</code> (${fmtPx(item.nearestPx)}px), cost ${fmtPx(item.distance)}px</span>
+          </li>
+        `).join("")
+      }</ol>`;
+
+  const ignored = scale.ignoredUtilities > 0
+    ? `<p class="muted">Ignored spacing utilities (non-numeric): <strong>${scale.ignoredUtilities}</strong></p>`
+    : "";
+
+  return `
+    <p class="muted">Proposed scale (px): <strong>${escapeHtml(proposed)}</strong></p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Candidate</th>
+          <th class="num">Exact match</th>
+          <th class="num">Avg distance</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${candidateRows}
+      </tbody>
+    </table>
+    <h3>Non-conforming utilities</h3>
+    ${nonConforming}
+    ${ignored}
+  `;
+}
+
 function baseStyles(): string {
   // Minimal & self-contained; no external assets.
   return `
@@ -138,6 +199,7 @@ function baseStyles(): string {
       box-shadow: 0 1px 0 rgba(255,255,255,.06);
     }
     h2 { font-size: 16px; margin: 0 0 10px 0; }
+    h3 { font-size: 14px; margin: 12px 0 6px 0; color: #cbd5e1; }
     .meta div { margin-bottom: 8px; }
     .muted { color: #9ca3af; margin-top: 0; }
     .list { margin: 0; padding-left: 18px; }
@@ -201,6 +263,7 @@ export function generateReportHtml(
       m.arbitraryValues.items
     )
   );
+  const spacingScaleSection = sectionHtml("Spacing scale", renderSpacingScale(m));
 
   const sectionsHtml = m.sections
     .map((sec) => sectionHtml(sec.title, renderSectionList(sec, topN)))
@@ -232,6 +295,7 @@ export function generateReportHtml(
     <div class="grid">
       ${sprawlSection}
       ${arbitrarySection}
+      ${spacingScaleSection}
       ${sectionsHtml}
       ${notesSection}
     </div>

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "pnpm -r build",
     "extract": "node packages/cli/dist/index.js extract",
-    "extract:demo": "node packages/cli/dist/index.js extract ./examples/demo-app -o ./out-demo",
+    "extract:demo": "node packages/cli/dist/index.js extract ./examples/demo-app -o ./output-demo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

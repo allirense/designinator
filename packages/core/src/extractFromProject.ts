@@ -4,6 +4,7 @@ import { readTextFile } from "./scanner/readFile";
 import { extractClassNameOccurrencesFromCode, type ClassNameOccurrence } from "./scanner/classNameExtractor";
 import { computeTokenCounts, sortTokenCounts, type TokenCountsResult } from "./analysis/tokenCounts";
 import { computeArbitraryValueStats, type ArbitraryValueStats } from "./analysis/arbitraryValues";
+import { computeSpacingScaleReport, type SpacingScaleReport } from "./analysis/spacingScale";
 
 export interface ExtractProjectOptions {
   projectRoot: string;
@@ -20,6 +21,7 @@ export interface ExtractProjectResult {
   };
   tokenCounts: TokenCountsResult;
   arbitraryValues: ArbitraryValueStats;
+  spacingScale: SpacingScaleReport;
 }
 
 export async function extractFromProject(opts: ExtractProjectOptions): Promise<ExtractProjectResult> {
@@ -45,6 +47,7 @@ export async function extractFromProject(opts: ExtractProjectOptions): Promise<E
 
   const tokenCounts = sortTokenCounts(computeTokenCounts(occurrences));
   const arbitraryValues = computeArbitraryValueStats(tokenCounts);
+  const spacingScale = computeSpacingScaleReport(tokenCounts);
 
   return {
     meta: {
@@ -54,6 +57,7 @@ export async function extractFromProject(opts: ExtractProjectOptions): Promise<E
       occurrenceCount: occurrences.length
     },
     tokenCounts,
-    arbitraryValues
+    arbitraryValues,
+    spacingScale
   };
 }

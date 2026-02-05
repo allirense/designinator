@@ -29,7 +29,7 @@ pnpm build
 
 ### Run locally with example
 ```
-pnpm extract ./examples/demo-app -o ./out
+pnpm extract ./examples/demo-app -o ./output-demo
 ```
 
 ---

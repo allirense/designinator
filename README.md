@@ -39,7 +39,7 @@ pnpm build
 ### Run on the included demo project
 
 ```
-pnpm extract ./examples/demo-app -o ./output-demo
+pnpm extract:demo
 ```
 
 ## Usage
@@ -80,12 +80,15 @@ A structured dump of token counts grouped by domain and group (e.g., color.backg
 A human readable summary that can be opened in the browser. Includes:
 - top utilities per group
 - basic "sprawl" warnings when there are many unique values
+- a proposed spacing scale with matching candidates and non-conforming classes
+- a list of arbitrary classes (classes that are used only one or two times) with, if present, possible replacements
 
 ### report.md
 
 A human readable summary in markdown. Includes:
 - top utilities per group
 - basic "sprawl" warnings when there are many unique values
+- a proposed spacing scale with matching candidates and non-conforming classes
 - a list of arbitrary classes (classes that are used only one or two times) with, if present, possible replacements
 
 ## Scope Limitations
