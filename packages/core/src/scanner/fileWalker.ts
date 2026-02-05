@@ -25,6 +25,7 @@ export async function getSourceFiles(
     "**/dist/**",
     "**/build/**",
     "**/out/**",
+    "**/output-demo/**",
     "**/.turbo/**",
     "**/.git/**",
     "**/coverage/**",

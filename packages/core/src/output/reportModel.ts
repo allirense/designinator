@@ -1,6 +1,7 @@
 import type { ExtractProjectResult } from "../extractFromProject";
 import type { TokenGroupCounts, TokenUsage } from "../analysis/tokenCounts";
 import type { ArbitraryValueStats } from "../analysis/arbitraryValues";
+import type { SpacingScaleReport } from "../analysis/spacingScale";
 
 export type ReportFormat = "html" | "md";
 
@@ -53,6 +54,7 @@ export interface ReportModel {
   title: string;
   meta: ExtractProjectResult["meta"];
   arbitraryValues: ArbitraryValueStats;
+  spacingScale: SpacingScaleReport;
   totals: {
     tokenCount: number;
     uniqueUtilities: number;
@@ -168,6 +170,7 @@ export function buildReportModel(result: ExtractProjectResult, opts: ReportModel
     title,
     meta: result.meta,
     arbitraryValues: result.arbitraryValues,
+    spacingScale: result.spacingScale,
     totals: {
       tokenCount: result.tokenCounts.meta.tokenCount,
       uniqueUtilities: result.tokenCounts.meta.uniqueUtilities,
